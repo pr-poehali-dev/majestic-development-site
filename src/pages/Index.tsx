@@ -4,31 +4,35 @@ import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
 const Index = () => {
-  const [downloadUrl] = useState("");
+  const downloadUrl = "https://drive.google.com/file/d/1Yi8h0IASSC3j8cLpZuuZLsZGdbONBBhE/view?usp=sharing";
+  const [showTrailer, setShowTrailer] = useState(false);
 
   const handleDownload = () => {
-    if (downloadUrl) {
-      window.location.href = downloadUrl;
-    } else {
-      alert("Пожалуйста, укажите ссылку на файл для скачивания в настройках");
-    }
+    window.open(downloadUrl, '_blank');
+  };
+
+  const handleTrailer = () => {
+    setShowTrailer(true);
   };
 
   const newsItems = [
     {
       date: "8 Ноября 2024",
-      title: "Обновление 2.0: Новая Эра",
-      description: "Представляем масштабное обновление с новыми локациями, персонажами и улучшенной графикой"
+      title: "GTA Online: Новое DLC",
+      description: "Встречайте новое обновление с эксклюзивным контентом, транспортом и миссиями",
+      image: "https://cdn.poehali.dev/projects/fe79cbf9-e952-46cc-af20-3fe3f63ac4c4/files/96fd4445-02a7-404f-89d8-f39af160f22c.jpg"
     },
     {
       date: "1 Ноября 2024",
-      title: "Хэллоуин Ивент",
-      description: "Специальное событие с уникальными наградами и тематическими квестами"
+      title: "Ограбление века",
+      description: "Новый режим ограблений с повышенными наградами и уникальными челленджами",
+      image: "https://cdn.poehali.dev/projects/fe79cbf9-e952-46cc-af20-3fe3f63ac4c4/files/3db1234b-eb7e-4188-8aa5-d95d5127fc49.jpg"
     },
     {
       date: "25 Октября 2024",
-      title: "Релиз версии 1.5",
-      description: "Исправлены ошибки, улучшена производительность и добавлен новый контент"
+      title: "Обновление графики",
+      description: "Улучшенная графика, оптимизация производительности и исправление багов",
+      image: "https://cdn.poehali.dev/projects/fe79cbf9-e952-46cc-af20-3fe3f63ac4c4/files/3f231be9-4a5c-4640-a862-8c5a252aff26.jpg"
     }
   ];
 
@@ -69,15 +73,15 @@ const Index = () => {
           </div>
           
           <h2 className="text-6xl md:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Погрузись в мир
+            Grand Theft Auto V
             <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              Магии и Приключений
+              Los Santos ждёт тебя
             </span>
           </h2>
           
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Эпическое RPG приключение с потрясающей графикой, захватывающим сюжетом и динамичным геймплеем
+            Окунись в мир криминальной жизни Лос-Сантоса. Три персонажа, безграничная свобода действий и эпические ограбления
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -92,6 +96,7 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="outline"
+              onClick={handleTrailer}
               className="border-primary/30 hover:bg-primary/10 text-lg px-8 py-6 h-auto"
             >
               <Icon name="Play" size={24} className="mr-2" />
@@ -99,14 +104,34 @@ const Index = () => {
             </Button>
           </div>
 
-          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <img 
-              src="https://cdn.poehali.dev/projects/fe79cbf9-e952-46cc-af20-3fe3f63ac4c4/files/feff0819-afdd-47b4-8914-0a808bb2c84c.jpg"
-              alt="Game Screenshot"
-              className="w-full h-auto"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-          </div>
+          {showTrailer ? (
+            <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full rounded-2xl"
+                  src="https://www.youtube.com/embed/iWlTc9S_Gik?autoplay=1"
+                  title="GTA 5 Trailer"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <button 
+                onClick={() => setShowTrailer(false)}
+                className="absolute top-4 right-4 bg-background/80 hover:bg-background rounded-full p-2 z-10"
+              >
+                <Icon name="X" size={24} />
+              </button>
+            </div>
+          ) : (
+            <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <img 
+                src="https://cdn.poehali.dev/projects/fe79cbf9-e952-46cc-af20-3fe3f63ac4c4/files/96fd4445-02a7-404f-89d8-f39af160f22c.jpg"
+                alt="GTA 5 Screenshot"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+            </div>
+          )}
         </div>
       </section>
 
@@ -198,8 +223,16 @@ const Index = () => {
             {newsItems.map((item, index) => (
               <Card 
                 key={index}
-                className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer group"
+                className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer group overflow-hidden"
               >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                     <Icon name="Calendar" size={16} />
