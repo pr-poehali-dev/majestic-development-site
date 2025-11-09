@@ -6,6 +6,7 @@ import { useState } from "react";
 const Index = () => {
   const downloadUrl = "https://drive.google.com/file/d/1yRaTYCND9vQFP7Wy9DJDi30ZE0z0sfl5/view?usp=sharing";
   const [showTrailer, setShowTrailer] = useState(false);
+  const [onlinePlayers] = useState(12847);
 
   const handleDownload = () => {
     window.open(downloadUrl, '_blank');
@@ -48,7 +49,7 @@ const Index = () => {
               Majestic Development
             </h1>
           </div>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
             <a href="#home" className="text-foreground/80 hover:text-primary transition-colors">
               Главная
             </a>
@@ -58,6 +59,14 @@ const Index = () => {
             <a href="#news" className="text-foreground/80 hover:text-primary transition-colors">
               Новости
             </a>
+            <a href="https://forum.majestic-rp.ru/" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary transition-colors">
+              Форум
+            </a>
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/30 rounded-full">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="text-sm font-semibold text-primary">{onlinePlayers.toLocaleString()}</span>
+              <span className="text-xs text-muted-foreground">онлайн</span>
+            </div>
           </div>
         </div>
       </nav>
@@ -80,9 +89,28 @@ const Index = () => {
             </span>
           </h2>
           
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Окунись в мир РП
           </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: '0.25s' }}>
+            <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-4">
+              <div className="text-3xl font-bold text-primary mb-1">15+</div>
+              <div className="text-sm text-muted-foreground">Серверов</div>
+            </div>
+            <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-4">
+              <div className="text-3xl font-bold text-secondary mb-1">200K+</div>
+              <div className="text-sm text-muted-foreground">Игроков</div>
+            </div>
+            <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-4">
+              <div className="text-3xl font-bold text-accent mb-1">500+</div>
+              <div className="text-sm text-muted-foreground">Фракций</div>
+            </div>
+            <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-4">
+              <div className="text-3xl font-bold text-primary mb-1">24/7</div>
+              <div className="text-sm text-muted-foreground">Поддержка</div>
+            </div>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <Button 
@@ -123,7 +151,7 @@ const Index = () => {
               </button>
             </div>
           ) : (
-            <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <img 
                 src="https://cdn.poehali.dev/projects/fe79cbf9-e952-46cc-af20-3fe3f63ac4c4/files/96fd4445-02a7-404f-89d8-f39af160f22c.jpg"
                 alt="GTA 5 Screenshot"
@@ -132,6 +160,88 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <h3 className="text-4xl font-bold text-center mb-12">
+            Особенности сервера
+          </h3>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="Users" size={24} className="text-primary" />
+                </div>
+                <h4 className="text-xl font-bold mb-3">Реалистичная РП система</h4>
+                <p className="text-muted-foreground">
+                  Глубокая ролевая игра с уникальными фракциями, бизнесами и возможностью построить свою карьеру от простого гражданина до влиятельного магната
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
+                  <Icon name="Car" size={24} className="text-secondary" />
+                </div>
+                <h4 className="text-xl font-bold mb-3">Огромный автопарк</h4>
+                <p className="text-muted-foreground">
+                  Более 500+ уникальных автомобилей с возможностью тюнинга. От бюджетных седанов до эксклюзивных суперкаров и мотоциклов
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="Home" size={24} className="text-accent" />
+                </div>
+                <h4 className="text-xl font-bold mb-3">Недвижимость</h4>
+                <p className="text-muted-foreground">
+                  Покупайте дома, квартиры и бизнесы. Создавайте свою империю недвижимости и получайте пассивный доход в игровом мире
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="Shield" size={24} className="text-primary" />
+                </div>
+                <h4 className="text-xl font-bold mb-3">Фракции</h4>
+                <p className="text-muted-foreground">
+                  Полиция, EMS, мафия, банды и легальные организации. Выберите свой путь и станьте частью увлекательной истории
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
+                  <Icon name="Briefcase" size={24} className="text-secondary" />
+                </div>
+                <h4 className="text-xl font-bold mb-3">Работы и бизнесы</h4>
+                <p className="text-muted-foreground">
+                  Устройтесь на одну из 30+ работ или откройте свой бизнес. Таксист, механик, фермер - выбор за вами
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-primary/20 hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="Gamepad2" size={24} className="text-accent" />
+                </div>
+                <h4 className="text-xl font-bold mb-3">Активности</h4>
+                <p className="text-muted-foreground">
+                  Квесты, ивенты, гонки, казино и многое другое. Скучать не придется - каждый день новые приключения
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
