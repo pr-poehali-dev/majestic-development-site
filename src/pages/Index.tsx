@@ -73,7 +73,7 @@ const Index = () => {
           </div>
           
           <h2 className="text-6xl md:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Grand Theft Auto V
+            <span className="text-primary">Majestic</span>
             <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               Los Santos ждёт тебя
@@ -81,7 +81,7 @@ const Index = () => {
           </h2>
           
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Окунись в мир криминальной жизни Лос-Сантоса. Три персонажа, безграничная свобода действий и эпические ограбления
+            Окунись в мир РП
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
