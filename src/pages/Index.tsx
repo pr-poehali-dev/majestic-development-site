@@ -4,7 +4,7 @@ import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
 const Index = () => {
-  const downloadUrl = "https://drive.google.com/file/d/1Yi8h0IASSC3j8cLpZuuZLsZGdbONBBhE/view?usp=sharing";
+  const downloadUrl = "https://drive.google.com/file/d/1yRaTYCND9vQFP7Wy9DJDi30ZE0z0sfl5/view?usp=sharing";
   const [showTrailer, setShowTrailer] = useState(false);
 
   const handleDownload = () => {
